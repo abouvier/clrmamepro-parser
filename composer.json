@@ -1,0 +1,27 @@
+{
+	"name": "abouvier/clrmamepro-parser",
+	"description": "ClrMamePro data file parser",
+	"keywords": [
+		"datafile",
+		"emulator",
+		"game",
+		"parser",
+		"redump",
+		"rom"
+	],
+	"license": "Apache-2.0",
+	"authors": [{
+		"name": "Alexandre Bouvier",
+		"email": "contact@amb.tf"
+	}],
+	"require": {
+		"php": ">=7.1",
+		"ext-parle": "*",
+		"ext-spl": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Abouvier\\Clrmamepro\\": "src"
+		}
+	}
+}
