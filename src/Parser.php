@@ -88,7 +88,7 @@ final class Parser implements ParserInterface
                             $depth++;
                             break;
                         case $this->productions[6]:
-                            $string = trim(preg_replace('/\\\\"/', '"', $this->parser->sigil(0)), '"');
+                            $string = str_replace('\"', '"', substr($this->parser->sigil(0), 1, -1));
                             break;
                         case $this->productions[7]:
                             $string = $this->parser->sigil(0);
