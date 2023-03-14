@@ -8,10 +8,17 @@ use Parle\Lexer;
 use Parle\Parser as ParleParser;
 use Parle\Token;
 
+/**
+ * @psalm-api
+ */
 final class Parser implements ParserInterface
 {
     private Lexer $lexer;
     private ParleParser $parser;
+
+    /**
+     * @var \SplFixedArray<int>
+     */
     private \SplFixedArray $productions;
 
     public function __construct()
@@ -21,6 +28,7 @@ final class Parser implements ParserInterface
         $this->parser->token("')'");
         $this->parser->token('QUOTED_STRING');
         $this->parser->token('STRING');
+        /** @var \SplFixedArray<int> */
         $this->productions = new \SplFixedArray(8);
         $this->productions[0] = $this->parser->push('START', 'SECTIONS');
         $this->productions[1] = $this->parser->push('SECTIONS', "STRING '(' ATTRIBUTES ')'");
@@ -54,12 +62,12 @@ final class Parser implements ParserInterface
             switch ($this->parser->action) {
                 case ParleParser::ACTION_ERROR:
                     throw new ParserException('Parse error.');
-                    break;
                 case ParleParser::ACTION_REDUCE:
                     switch ($this->parser->reduceId) {
                         case $this->productions[1]:
                         case $this->productions[4]:
                             $section = [];
+                            /** @var array<array|string> */
                             foreach (array_splice($attributes, -$depth) as [$name, $value]) {
                                 if (is_array($value)) {
                                     $section[$name][] = $value;
