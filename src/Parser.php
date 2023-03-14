@@ -7,13 +7,12 @@ namespace Abouvier\Clrmamepro;
 use Parle\Lexer;
 use Parle\Parser as ParleParser;
 use Parle\Token;
-use SplFixedArray;
 
 final class Parser implements ParserInterface
 {
     private Lexer $lexer;
     private ParleParser $parser;
-    private SplFixedArray $productions;
+    private \SplFixedArray $productions;
 
     public function __construct()
     {
@@ -22,7 +21,7 @@ final class Parser implements ParserInterface
         $this->parser->token("')'");
         $this->parser->token('QUOTED_STRING');
         $this->parser->token('STRING');
-        $this->productions = new SplFixedArray(8);
+        $this->productions = new \SplFixedArray(8);
         $this->productions[0] = $this->parser->push('START', 'SECTIONS');
         $this->productions[1] = $this->parser->push('SECTIONS', "STRING '(' ATTRIBUTES ')'");
         $this->productions[2] = $this->parser->push('SECTIONS', 'SECTIONS SECTIONS');
