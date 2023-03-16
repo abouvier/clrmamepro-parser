@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Abouvier\Clrmamepro;
 
+use Abouvier\Clrmamepro\Exception\ParserException;
 use Parle\Lexer;
 use Parle\Parser as ParleParser;
 use Parle\Token;
