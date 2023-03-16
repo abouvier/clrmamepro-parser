@@ -29,16 +29,16 @@ final class Parser implements ParserInterface
         $this->parser->token("')'");
         $this->parser->token('QUOTED_STRING');
         $this->parser->token('STRING');
-        /** @var \SplFixedArray<int> */
-        $this->productions = new \SplFixedArray(8);
-        $this->productions[0] = $this->parser->push('START', 'SECTIONS');
-        $this->productions[1] = $this->parser->push('SECTIONS', "STRING '(' ATTRIBUTES ')'");
-        $this->productions[2] = $this->parser->push('SECTIONS', 'SECTIONS SECTIONS');
-        $this->productions[3] = $this->parser->push('ATTRIBUTES', 'STRING VALUE');
-        $this->productions[4] = $this->parser->push('ATTRIBUTES', "STRING '(' ATTRIBUTES ')'");
-        $this->productions[5] = $this->parser->push('ATTRIBUTES', 'ATTRIBUTES ATTRIBUTES');
-        $this->productions[6] = $this->parser->push('VALUE', 'QUOTED_STRING');
-        $this->productions[7] = $this->parser->push('VALUE', 'STRING');
+        $this->productions = \SplFixedArray::fromArray([
+            $this->parser->push('START', 'SECTIONS'),
+            $this->parser->push('SECTIONS', "STRING '(' ATTRIBUTES ')'"),
+            $this->parser->push('SECTIONS', 'SECTIONS SECTIONS'),
+            $this->parser->push('ATTRIBUTES', 'STRING VALUE'),
+            $this->parser->push('ATTRIBUTES', "STRING '(' ATTRIBUTES ')'"),
+            $this->parser->push('ATTRIBUTES', 'ATTRIBUTES ATTRIBUTES'),
+            $this->parser->push('VALUE', 'QUOTED_STRING'),
+            $this->parser->push('VALUE', 'STRING'),
+        ]);
         $this->parser->build();
         $this->lexer = new Lexer();
         $this->lexer->push('[(]', $this->parser->tokenId("'('"));
