@@ -1,2 +1,4 @@
 /composer.lock
+/.php-cs-fixer.php
+/psalm.xml
 /vendor

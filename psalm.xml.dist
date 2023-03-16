@@ -10,6 +10,7 @@
 >
     <projectFiles>
         <directory name="src" />
+        <file name=".php-cs-fixer.dist.php" />
         <ignoreFiles>
             <directory name="vendor" />
         </ignoreFiles>
