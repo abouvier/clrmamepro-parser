@@ -71,7 +71,11 @@ final class Parser implements ParserInterface
 							/** @var array<array|string> */
 							foreach (array_splice($attributes, -$depth) as [$name, $value]) {
 								if (is_array($value)) {
-									$section[$name][] = $value;
+									if (isset($section[$name]) and is_array($section[$name])) {
+										$section[$name][] = $value;
+									} else {
+										$section[$name] = [$value];
+									}
 								} else {
 									$section[$name] = $value;
 								}
