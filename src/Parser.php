@@ -30,14 +30,16 @@ final class Parser implements ParserInterface
 		$this->parser->token('QUOTED_STRING');
 		$this->parser->token('STRING');
 		$this->productions = \SplFixedArray::fromArray([
-			$this->parser->push('START', 'SECTIONS'),
-			$this->parser->push('SECTIONS', "STRING '(' ATTRIBUTES ')'"),
-			$this->parser->push('SECTIONS', 'SECTIONS SECTIONS'),
-			$this->parser->push('ATTRIBUTES', 'STRING VALUE'),
-			$this->parser->push('ATTRIBUTES', "STRING '(' ATTRIBUTES ')'"),
-			$this->parser->push('ATTRIBUTES', 'ATTRIBUTES ATTRIBUTES'),
+			$this->parser->push('CLRMAMEPRO', 'SECTIONS'),
+			$this->parser->push('SECTIONS', "NAME '(' ATTRIBUTES ')'"),
+			$this->parser->push('SECTIONS', "SECTIONS NAME '(' ATTRIBUTES ')'"),
+			$this->parser->push('ATTRIBUTES', "NAME '(' ATTRIBUTES ')'"),
+			$this->parser->push('ATTRIBUTES', "ATTRIBUTES NAME '(' ATTRIBUTES ')'"),
+			$this->parser->push('ATTRIBUTES', 'NAME VALUE'),
+			$this->parser->push('ATTRIBUTES', 'ATTRIBUTES NAME VALUE'),
 			$this->parser->push('VALUE', 'QUOTED_STRING'),
 			$this->parser->push('VALUE', 'STRING'),
+			$this->parser->push('NAME', 'STRING'),
 		]);
 		$this->parser->build();
 		$this->lexer = new Lexer();
@@ -52,9 +54,12 @@ final class Parser implements ParserInterface
 	public function parse(string $input): array
 	{
 		$attributes = [];
-		$depth = 1;
+		$clrmamepro = [];
+		/** @var \SplStack<string> $names */
+		$names = new \SplStack();
 		$sections = [];
-		$string = '';
+		/** @var \SplStack<string> $values */
+		$values = new \SplStack();
 		for (
 			$this->parser->consume($input, $this->lexer);
 			ParleParser::ACTION_ACCEPT != $this->parser->action;
@@ -66,51 +71,48 @@ final class Parser implements ParserInterface
 				case ParleParser::ACTION_REDUCE:
 					switch ($this->parser->reduceId) {
 						case $this->productions[1]:
-						case $this->productions[4]:
-							$section = [];
-							/** @var array<array|string> */
-							foreach (array_splice($attributes, -$depth) as [$name, $value]) {
-								if (is_array($value)) {
-									if (isset($section[$name]) and is_array($section[$name])) {
-										$section[$name][] = $value;
-									} else {
-										$section[$name] = [$value];
-									}
-								} else {
-									$section[$name] = $value;
-								}
-							}
-							if ($this->parser->reduceId == $this->productions[4]) {
-								$attributes[] = [
-									$this->parser->sigil(0),
-									$section,
-								];
-							} else {
-								$sections[$this->parser->sigil(0)][] = $section;
-							}
-							$depth = 1;
+						case $this->productions[2]:
+							$section = array_pop($sections) ?? [];
+							$section = array_merge($section, $attributes);
+							$clrmamepro[$names->pop()][] = $section;
+							$attributes = [];
 							break;
 						case $this->productions[3]:
-							$attributes[] = [
-								$this->parser->sigil(0),
-								$string,
-							];
+						case $this->productions[4]:
+							$name = $names->pop();
+							$section = array_pop($sections);
+							if (isset($section[$name]) and is_array($section[$name])) {
+								$section[$name][] = $attributes;
+							} else {
+								$section[$name] = [$attributes];
+							}
+							$sections[] = $section;
+							$attributes = [];
 							break;
 						case $this->productions[5]:
-							$depth++;
+							if ($attributes) {
+								$sections[] = $attributes;
+							}
+							$attributes = [$names->pop() => $values->pop()];
 							break;
 						case $this->productions[6]:
-							$string = str_replace('\"', '"', substr($this->parser->sigil(0), 1, -1));
+							$attributes[$names->pop()] = $values->pop();
 							break;
 						case $this->productions[7]:
-							$string = $this->parser->sigil(0);
+							$values->push(str_replace('\"', '"', substr($this->parser->sigil(0), 1, -1)));
+							break;
+						case $this->productions[8]:
+							$values->push($this->parser->sigil(0));
+							break;
+						case $this->productions[9]:
+							$names->push($this->parser->sigil(0));
 							break;
 					}
 					break;
 			}
 		}
 
-		return $sections;
+		return $clrmamepro;
 	}
 
 	public function validate(string $input): bool
