@@ -55,6 +55,11 @@ final class Parser implements ParserInterface
 		$this->lexer->build();
 	}
 
+	public static function create(): static
+	{
+		return new static();
+	}
+
 	public function parse(string $input): array
 	{
 		$attributes = [];

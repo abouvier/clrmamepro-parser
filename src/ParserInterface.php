@@ -13,6 +13,8 @@ namespace Abouvier\Clrmamepro;
  */
 interface ParserInterface
 {
+	public static function create(): ParserInterface;
+
 	public function parse(string $input): array;
 
 	public function validate(string $input): bool;
