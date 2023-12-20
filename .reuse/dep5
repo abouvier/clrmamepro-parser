@@ -3,6 +3,6 @@ Upstream-Name: clrmamepro-parser
 Upstream-Contact: Alexandre Bouvier <contact@amb.tf>
 Source: https://github.com/abouvier/clrmamepro-parser
 
-Files: composer.json
+Files: composer.json composer.lock
 Copyright: 2023 Alexandre Bouvier <contact@amb.tf>
 License: CC0-1.0
