@@ -95,8 +95,7 @@ final class Parser implements ParserInterface
 							} else {
 								$section[$name] = [$attributes];
 							}
-							$sections[] = $section;
-							$attributes = [];
+							$attributes = $section;
 							break;
 						case $this->productions[5]:
 							if ($attributes) {
