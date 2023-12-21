@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 // SPDX-FileCopyrightText: 2023 Alexandre Bouvier <contact@amb.tf>
 //
-// SPDX-License-Identifier: Apache-2.0
+// SPDX-License-Identifier: CC0-1.0
 
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
