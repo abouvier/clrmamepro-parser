@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "addd9f85b63978839fead532e22ab3c9",
+    "content-hash": "7c3ca665de6962458966052aa4a90faf",
     "packages": [],
     "packages-dev": [
         {
@@ -730,25 +730,26 @@
         },
         {
             "name": "jetbrains/phpstorm-stubs",
-            "version": "v2023.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "99d8bcab934ae5362f33660b1cd4b8c4d617c40b"
+                "reference": "92dda01179ca69dcdfa8180965efea1d06d3d184"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/99d8bcab934ae5362f33660b1cd4b8c4d617c40b",
-                "reference": "99d8bcab934ae5362f33660b1cd4b8c4d617c40b",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/92dda01179ca69dcdfa8180965efea1d06d3d184",
+                "reference": "92dda01179ca69dcdfa8180965efea1d06d3d184",
                 "shasum": ""
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "@stable",
                 "nikic/php-parser": "@stable",
-                "php": "^8.0",
+                "php": "^8.3",
                 "phpdocumentor/reflection-docblock": "@stable",
-                "phpunit/phpunit": "^9.6"
+                "phpunit/phpunit": "@stable"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -772,9 +773,9 @@
                 "type"
             ],
             "support": {
-                "source": "https://github.com/JetBrains/phpstorm-stubs/tree/v2023.3"
+                "source": "https://github.com/JetBrains/phpstorm-stubs/tree/master"
             },
-            "time": "2023-11-01T18:52:29+00:00"
+            "time": "2023-12-15T19:42:51+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -2909,14 +2910,14 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "friendsofphp/php-cs-fixer": 0,
-        "jetbrains/phpstorm-stubs": 0,
+        "jetbrains/phpstorm-stubs": 20,
         "phpstan/phpstan": 0,
         "vimeo/psalm": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1",
+        "php": "^8.0",
         "ext-parle": "*",
         "ext-spl": "*"
     },

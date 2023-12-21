@@ -1,29 +1,41 @@
 {
 	"name": "abouvier/clrmamepro-parser",
-	"description": "ClrMamePro data file parser",
+	"description": "Parser for ClrMamePro DAT files",
 	"keywords": [
-		"datafile",
-		"emulator",
+		"clrmamepro",
+		"dat",
+		"emulation",
 		"game",
+		"hash",
+		"lexer",
+		"mame",
 		"parser",
-		"redump",
 		"rom"
 	],
-	"license": "Apache-2.0",
+	"homepage": "https://github.com/abouvier/clrmamepro-parser",
+	"license": [
+		"Apache-2.0",
+		"CC0-1.0"
+	],
 	"authors": [
 		{
 			"name": "Alexandre Bouvier",
-			"email": "contact@amb.tf"
+			"email": "contact@amb.tf",
+			"homepage": "https://github.com/abouvier"
 		}
 	],
+	"support": {
+		"issues": "https://github.com/abouvier/clrmamepro-parser/issues",
+		"source": "https://github.com/abouvier/clrmamepro-parser"
+	},
 	"require": {
-		"php": ">=7.1",
+		"php": "^8.0",
 		"ext-parle": "*",
 		"ext-spl": "*"
 	},
 	"require-dev": {
 		"friendsofphp/php-cs-fixer": "@stable",
-		"jetbrains/phpstorm-stubs": "@stable",
+		"jetbrains/phpstorm-stubs": "@dev",
 		"phpstan/phpstan": "@stable",
 		"vimeo/psalm": "@stable"
 	},
