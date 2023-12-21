@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2023 Alexandre Bouvier <contact@amb.tf>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+parameters:
+  level: 9
+  paths:
+    - .php-cs-fixer.dist.php
+    - src
+  stubFiles:
+    - vendor/jetbrains/phpstorm-stubs/Parle/Parser.php

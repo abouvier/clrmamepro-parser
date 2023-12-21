@@ -24,6 +24,7 @@
 	"require-dev": {
 		"friendsofphp/php-cs-fixer": "@stable",
 		"jetbrains/phpstorm-stubs": "@stable",
+		"phpstan/phpstan": "@stable",
 		"vimeo/psalm": "@stable"
 	},
 	"autoload": {
