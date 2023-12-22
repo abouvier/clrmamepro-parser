@@ -55,6 +55,13 @@
         }
     },
     "scripts": {
-        "post-update-cmd": "phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard"
+        "post-update-cmd": "phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard",
+        "lint": [
+            "phpcs",
+            "phpstan",
+            "psalm"
+        ],
+        "reuse": "reuse lint",
+        "test": "phpunit tests"
     }
 }
