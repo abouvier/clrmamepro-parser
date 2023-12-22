@@ -9,6 +9,7 @@
 		"hash",
 		"lexer",
 		"mame",
+		"parle",
 		"parser",
 		"rom"
 	],
