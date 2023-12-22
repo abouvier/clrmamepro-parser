@@ -1,60 +1,60 @@
 {
-	"name": "abouvier/clrmamepro-parser",
-	"description": "Parser for ClrMamePro DAT files",
-	"keywords": [
-		"clrmamepro",
-		"dat",
-		"emulation",
-		"game",
-		"hash",
-		"lexer",
-		"mame",
-		"parle",
-		"parser",
-		"rom"
-	],
-	"homepage": "https://github.com/abouvier/clrmamepro-parser",
-	"license": [
-		"Apache-2.0",
-		"CC0-1.0"
-	],
-	"authors": [
-		{
-			"name": "Alexandre Bouvier",
-			"email": "contact@amb.tf",
-			"homepage": "https://github.com/abouvier"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/abouvier/clrmamepro-parser/issues",
-		"source": "https://github.com/abouvier/clrmamepro-parser"
-	},
-	"require": {
-		"php": "^8.0",
-		"ext-parle": "*",
-		"ext-spl": "*"
-	},
-	"require-dev": {
-		"escapestudios/symfony2-coding-standard": "@dev",
-		"friendsofphp/php-cs-fixer": "@stable",
-		"jetbrains/phpstorm-stubs": "@dev",
-		"phpstan/phpstan": "@stable",
-		"phpstan/phpstan-strict-rules": "@dev",
-		"phpunit/phpunit": "@stable",
-		"squizlabs/php_codesniffer": "@stable",
-		"vimeo/psalm": "@stable"
-	},
-	"autoload": {
-		"psr-4": {
-			"Abouvier\\Clrmamepro\\": "src"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Abouvier\\Clrmamepro\\Tests\\": "tests"
-		}
-	},
-	"scripts": {
-		"post-update-cmd": "phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard"
-	}
+    "name": "abouvier/clrmamepro-parser",
+    "description": "Parser for ClrMamePro DAT files",
+    "keywords": [
+        "clrmamepro",
+        "dat",
+        "emulation",
+        "game",
+        "hash",
+        "lexer",
+        "mame",
+        "parle",
+        "parser",
+        "rom"
+    ],
+    "homepage": "https://github.com/abouvier/clrmamepro-parser",
+    "license": [
+        "Apache-2.0",
+        "CC0-1.0"
+    ],
+    "authors": [
+        {
+            "name": "Alexandre Bouvier",
+            "email": "contact@amb.tf",
+            "homepage": "https://github.com/abouvier"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/abouvier/clrmamepro-parser/issues",
+        "source": "https://github.com/abouvier/clrmamepro-parser"
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-parle": "*",
+        "ext-spl": "*"
+    },
+    "require-dev": {
+        "escapestudios/symfony2-coding-standard": "@dev",
+        "friendsofphp/php-cs-fixer": "@stable",
+        "jetbrains/phpstorm-stubs": "@dev",
+        "phpstan/phpstan": "@stable",
+        "phpstan/phpstan-strict-rules": "@dev",
+        "phpunit/phpunit": "@stable",
+        "squizlabs/php_codesniffer": "@stable",
+        "vimeo/psalm": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "Abouvier\\Clrmamepro\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Abouvier\\Clrmamepro\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-update-cmd": "phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard"
+    }
 }

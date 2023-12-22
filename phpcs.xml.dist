@@ -7,25 +7,17 @@ SPDX-License-Identifier: CC0-1.0
 -->
 
 <ruleset
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
-	<file>src</file>
-	<file>tests</file>
+    <file>src</file>
+    <file>tests</file>
 
-	<exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
 
-	<rule ref="Symfony">
-		<exclude name="Generic.WhiteSpace.DisallowTabIndent" />
-		<exclude name="Symfony.Commenting.ClassComment.Missing" />
-		<exclude name="Symfony.Commenting.FunctionComment" />
-	</rule>
-
-	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent" />
-	<rule ref="Generic.WhiteSpace.ScopeIndent">
-		<properties>
-			<property name="indent" value="4" />
-			<property name="tabIndent" value="true" />
-		</properties>
-	</rule>
+    <rule ref="Symfony">
+        <exclude name="Symfony.Commenting.ClassComment.Missing" />
+        <exclude name="Symfony.Commenting.FunctionComment.Missing" />
+        <exclude name="Symfony.Commenting.FunctionComment.MissingParamTag" />
+    </rule>
 </ruleset>

@@ -10,12 +10,12 @@ namespace Abouvier\Clrmamepro;
 
 interface ParserInterface
 {
-	public static function create(): ParserInterface;
+    public static function create(): ParserInterface;
 
-	/**
-	 * @return array<string, mixed>
-	 */
-	public function parse(string $input): array;
+    /**
+     * @return array<string, mixed>
+     */
+    public function parse(string $input): array;
 
-	public function validate(string $input): bool;
+    public function validate(string $input): bool;
 }
