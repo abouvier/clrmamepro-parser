@@ -13,9 +13,6 @@ use Parle\Lexer;
 use Parle\Parser as ParleParser;
 use Parle\Token;
 
-/**
- * @psalm-api
- */
 final class Parser implements ParserInterface
 {
 	private Lexer $lexer;
@@ -62,6 +59,7 @@ final class Parser implements ParserInterface
 
 	public function parse(string $input): array
 	{
+		/** @var array<string, mixed> */
 		$attributes = [];
 		$clrmamepro = [];
 		/** @var \SplStack<string> $names */
@@ -69,11 +67,7 @@ final class Parser implements ParserInterface
 		$sections = [];
 		/** @var \SplStack<string> $values */
 		$values = new \SplStack();
-		for (
-			$this->parser->consume($input, $this->lexer);
-			ParleParser::ACTION_ACCEPT != $this->parser->action;
-			$this->parser->advance()
-		) {
+		for ($this->parser->consume($input, $this->lexer); ParleParser::ACTION_ACCEPT !== $this->parser->action; $this->parser->advance()) {
 			switch ($this->parser->action) {
 				case ParleParser::ACTION_ERROR:
 					throw new ParserException('Parse error.');
@@ -98,7 +92,7 @@ final class Parser implements ParserInterface
 							$attributes = $section;
 							break;
 						case $this->productions[5]:
-							if ($attributes) {
+							if (0 !== count($attributes)) {
 								$sections[] = $attributes;
 							}
 							$attributes = [$names->pop() => $values->pop()];

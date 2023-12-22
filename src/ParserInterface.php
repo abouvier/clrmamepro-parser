@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 namespace Abouvier\Clrmamepro;
 
-/**
- * @psalm-api
- */
 interface ParserInterface
 {
 	public static function create(): ParserInterface;
 
+	/**
+	 * @return array<string, mixed>
+	 */
 	public function parse(string $input): array;
 
 	public function validate(string $input): bool;
