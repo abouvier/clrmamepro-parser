@@ -34,15 +34,20 @@
 		"ext-spl": "*"
 	},
 	"require-dev": {
+		"escapestudios/symfony2-coding-standard": "@dev",
 		"friendsofphp/php-cs-fixer": "@stable",
 		"jetbrains/phpstorm-stubs": "@dev",
 		"phpstan/phpstan": "@stable",
 		"phpstan/phpstan-strict-rules": "@dev",
+		"squizlabs/php_codesniffer": "@stable",
 		"vimeo/psalm": "@stable"
 	},
 	"autoload": {
 		"psr-4": {
 			"Abouvier\\Clrmamepro\\": "src"
 		}
+	},
+	"scripts": {
+		"post-update-cmd": "phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard"
 	}
 }
