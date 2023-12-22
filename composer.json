@@ -37,6 +37,7 @@
 		"friendsofphp/php-cs-fixer": "@stable",
 		"jetbrains/phpstorm-stubs": "@dev",
 		"phpstan/phpstan": "@stable",
+		"phpstan/phpstan-strict-rules": "@dev",
 		"vimeo/psalm": "@stable"
 	},
 	"autoload": {
