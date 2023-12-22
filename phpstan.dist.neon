@@ -9,6 +9,7 @@ parameters:
   level: max
   paths:
     - src
+    - tests
   excludePaths:
     - vendor
   stubFiles:

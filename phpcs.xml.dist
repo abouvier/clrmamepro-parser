@@ -11,6 +11,7 @@ SPDX-License-Identifier: CC0-1.0
 	xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
 >
 	<file>src</file>
+	<file>tests</file>
 
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 

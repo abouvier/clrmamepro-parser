@@ -17,6 +17,7 @@ SPDX-License-Identifier: CC0-1.0
 >
 	<projectFiles>
 		<directory name="src" />
+		<directory name="tests" />
 		<file name=".php-cs-fixer.dist.php" />
 		<ignoreFiles>
 			<directory name="vendor" />

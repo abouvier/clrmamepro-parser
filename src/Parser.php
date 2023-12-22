@@ -82,7 +82,7 @@ final class Parser implements ParserInterface
 						case $this->productions[1]:
 						case $this->productions[2]:
 							$section = array_pop($sections) ?? [];
-							$section = array_merge($section, $attributes);
+							$section = array_replace($section, $attributes);
 							$clrmamepro[$names->pop()][] = $section;
 							$attributes = [];
 							break;

@@ -39,12 +39,18 @@
 		"jetbrains/phpstorm-stubs": "@dev",
 		"phpstan/phpstan": "@stable",
 		"phpstan/phpstan-strict-rules": "@dev",
+		"phpunit/phpunit": "@stable",
 		"squizlabs/php_codesniffer": "@stable",
 		"vimeo/psalm": "@stable"
 	},
 	"autoload": {
 		"psr-4": {
 			"Abouvier\\Clrmamepro\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Abouvier\\Clrmamepro\\Tests\\": "tests"
 		}
 	},
 	"scripts": {
