@@ -38,6 +38,7 @@
         "escapestudios/symfony2-coding-standard": "@dev",
         "friendsofphp/php-cs-fixer": "@stable",
         "jetbrains/phpstorm-stubs": "@dev",
+        "phpmd/phpmd": "@stable",
         "phpstan/phpstan": "@stable",
         "phpstan/phpstan-strict-rules": "@dev",
         "phpunit/phpunit": "@stable",
