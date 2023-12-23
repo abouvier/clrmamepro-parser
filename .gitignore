@@ -3,8 +3,11 @@
 # SPDX-License-Identifier: CC0-1.0
 
 /pdepend.xml
+/.php-cs-fixer.cache
 /.php-cs-fixer.php
 /phpcs.xml
 /phpstan.neon
+/.phpunit.cache/
+/phpunit.xml
 /psalm.xml
-/vendor
+/vendor/
